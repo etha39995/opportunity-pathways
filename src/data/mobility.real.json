@@ -1,0 +1,1537 @@
+{
+  "source": "https://opportunityinsights.org/wp-content/uploads/2018/10/tract_outcomes_simple.csv",
+  "generatedAt": "2026-05-13T15:09:58.604Z",
+  "notes": "Population-weighted state aggregates of tract-level kfr_*_p25 from Opportunity Insights tract_outcomes_simple.csv. Only p25 parental income is available; race=Asian and multi-cohort trends are not included in this extract.",
+  "states": [
+    {
+      "code": "DE",
+      "name": "Delaware",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 37.2,
+            "male": 35.4,
+            "female": 39
+          },
+          "white": {
+            "all": 42.2,
+            "male": 41,
+            "female": 43.6
+          },
+          "black": {
+            "all": 32.3,
+            "male": 29.7,
+            "female": 34.7
+          },
+          "hispanic": {
+            "all": 38.7,
+            "male": 38.8,
+            "female": 38.8
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1
+    },
+    {
+      "code": "DC",
+      "name": "District of Columbia",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 34.4,
+            "male": 31,
+            "female": 37.9
+          },
+          "white": {
+            "all": 48,
+            "male": 48.3,
+            "female": 49.4
+          },
+          "black": {
+            "all": 33.9,
+            "male": 30.1,
+            "female": 37.3
+          },
+          "hispanic": {
+            "all": 45.5,
+            "male": 43.6,
+            "female": 47.3
+          }
+        }
+      },
+      "cohort": [],
+      "population": 0.7
+    },
+    {
+      "code": "FL",
+      "name": "Florida",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 38.4,
+            "male": 36.6,
+            "female": 40.4
+          },
+          "white": {
+            "all": 42.2,
+            "male": 40.7,
+            "female": 43.8
+          },
+          "black": {
+            "all": 31.7,
+            "male": 29,
+            "female": 34.2
+          },
+          "hispanic": {
+            "all": 43.4,
+            "male": 42.1,
+            "female": 45.2
+          }
+        }
+      },
+      "cohort": [],
+      "population": 21.5
+    },
+    {
+      "code": "GA",
+      "name": "Georgia",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 35.6,
+            "male": 34.1,
+            "female": 37.2
+          },
+          "white": {
+            "all": 41.6,
+            "male": 40.5,
+            "female": 42.8
+          },
+          "black": {
+            "all": 30.9,
+            "male": 29,
+            "female": 32.7
+          },
+          "hispanic": {
+            "all": 39.8,
+            "male": 38.7,
+            "female": 40.7
+          }
+        }
+      },
+      "cohort": [],
+      "population": 10.7
+    },
+    {
+      "code": "HI",
+      "name": "Hawaii",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 44.1,
+            "male": 42.6,
+            "female": 45.9
+          },
+          "white": {
+            "all": 45.1,
+            "male": 43,
+            "female": 47.7
+          },
+          "black": {
+            "all": 38.1,
+            "male": 34.5,
+            "female": 39.6
+          },
+          "hispanic": {
+            "all": 43.2,
+            "male": 41.7,
+            "female": 44.1
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1.5
+    },
+    {
+      "code": "ID",
+      "name": "Idaho",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 44.7,
+            "male": 44,
+            "female": 45.6
+          },
+          "white": {
+            "all": 47,
+            "male": 46.1,
+            "female": 48
+          },
+          "black": {
+            "all": 43.1,
+            "male": 47.8,
+            "female": 45.8
+          },
+          "hispanic": {
+            "all": 42.8,
+            "male": 42.5,
+            "female": 42.3
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1.8
+    },
+    {
+      "code": "IL",
+      "name": "Illinois",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 39.4,
+            "male": 37.8,
+            "female": 41.1
+          },
+          "white": {
+            "all": 46.9,
+            "male": 45.7,
+            "female": 48.3
+          },
+          "black": {
+            "all": 30.4,
+            "male": 27.3,
+            "female": 33
+          },
+          "hispanic": {
+            "all": 43.4,
+            "male": 42.7,
+            "female": 44.1
+          }
+        }
+      },
+      "cohort": [],
+      "population": 12.8
+    },
+    {
+      "code": "IN",
+      "name": "Indiana",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 39,
+            "male": 38.1,
+            "female": 40
+          },
+          "white": {
+            "all": 42.1,
+            "male": 41.5,
+            "female": 42.8
+          },
+          "black": {
+            "all": 31.1,
+            "male": 28.9,
+            "female": 33.1
+          },
+          "hispanic": {
+            "all": 41.6,
+            "male": 42.4,
+            "female": 42.9
+          }
+        }
+      },
+      "cohort": [],
+      "population": 6.8
+    },
+    {
+      "code": "IA",
+      "name": "Iowa",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 47.6,
+            "male": 46.3,
+            "female": 49
+          },
+          "white": {
+            "all": 50.2,
+            "male": 49,
+            "female": 51.5
+          },
+          "black": {
+            "all": 31.8,
+            "male": 29.4,
+            "female": 33.4
+          },
+          "hispanic": {
+            "all": 42.4,
+            "male": 42,
+            "female": 44
+          }
+        }
+      },
+      "cohort": [],
+      "population": 3.2
+    },
+    {
+      "code": "KS",
+      "name": "Kansas",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 43,
+            "male": 41.9,
+            "female": 44.3
+          },
+          "white": {
+            "all": 46.9,
+            "male": 46,
+            "female": 48
+          },
+          "black": {
+            "all": 31.9,
+            "male": 29.5,
+            "female": 33.8
+          },
+          "hispanic": {
+            "all": 41.3,
+            "male": 40.7,
+            "female": 41.7
+          }
+        }
+      },
+      "cohort": [],
+      "population": 2.9
+    },
+    {
+      "code": "KY",
+      "name": "Kentucky",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 38.5,
+            "male": 37.3,
+            "female": 39.6
+          },
+          "white": {
+            "all": 40.6,
+            "male": 39.6,
+            "female": 41.6
+          },
+          "black": {
+            "all": 31.1,
+            "male": 29,
+            "female": 32.7
+          },
+          "hispanic": {
+            "all": 42.2,
+            "male": 42.2,
+            "female": 43.5
+          }
+        }
+      },
+      "cohort": [],
+      "population": 4.5
+    },
+    {
+      "code": "LA",
+      "name": "Louisiana",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 38.8,
+            "male": 38.2,
+            "female": 39.4
+          },
+          "white": {
+            "all": 47.1,
+            "male": 47.3,
+            "female": 47.1
+          },
+          "black": {
+            "all": 32.7,
+            "male": 31.9,
+            "female": 33.4
+          },
+          "hispanic": {
+            "all": 45,
+            "male": 44.4,
+            "female": 47.8
+          }
+        }
+      },
+      "cohort": [],
+      "population": 4.7
+    },
+    {
+      "code": "ME",
+      "name": "Maine",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 41.9,
+            "male": 41,
+            "female": 42.9
+          },
+          "white": {
+            "all": 43.1,
+            "male": 42.3,
+            "female": 44
+          },
+          "black": {
+            "all": 36.3,
+            "male": null,
+            "female": null
+          },
+          "hispanic": {
+            "all": 43.5,
+            "male": null,
+            "female": 33
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1.4
+    },
+    {
+      "code": "MD",
+      "name": "Maryland",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 39.8,
+            "male": 37.4,
+            "female": 42.2
+          },
+          "white": {
+            "all": 45.5,
+            "male": 44.4,
+            "female": 47
+          },
+          "black": {
+            "all": 35,
+            "male": 31.9,
+            "female": 37.9
+          },
+          "hispanic": {
+            "all": 47.7,
+            "male": 46.6,
+            "female": 49.7
+          }
+        }
+      },
+      "cohort": [],
+      "population": 6.2
+    },
+    {
+      "code": "MA",
+      "name": "Massachusetts",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 43.8,
+            "male": 42.3,
+            "female": 45.4
+          },
+          "white": {
+            "all": 47.9,
+            "male": 46.5,
+            "female": 49.3
+          },
+          "black": {
+            "all": 37.7,
+            "male": 35.3,
+            "female": 40
+          },
+          "hispanic": {
+            "all": 39.6,
+            "male": 39,
+            "female": 40
+          }
+        }
+      },
+      "cohort": [],
+      "population": 7
+    },
+    {
+      "code": "MI",
+      "name": "Michigan",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 37.8,
+            "male": 36.2,
+            "female": 39.6
+          },
+          "white": {
+            "all": 42.9,
+            "male": 41.8,
+            "female": 44.1
+          },
+          "black": {
+            "all": 30.1,
+            "male": 27.2,
+            "female": 32.9
+          },
+          "hispanic": {
+            "all": 38.2,
+            "male": 37.2,
+            "female": 38.2
+          }
+        }
+      },
+      "cohort": [],
+      "population": 10.1
+    },
+    {
+      "code": "MN",
+      "name": "Minnesota",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 46.7,
+            "male": 45.4,
+            "female": 48.1
+          },
+          "white": {
+            "all": 51.1,
+            "male": 50.1,
+            "female": 52.3
+          },
+          "black": {
+            "all": 33.8,
+            "male": 31.4,
+            "female": 35.6
+          },
+          "hispanic": {
+            "all": 40.3,
+            "male": 38.9,
+            "female": 41
+          }
+        }
+      },
+      "cohort": [],
+      "population": 5.7
+    },
+    {
+      "code": "MS",
+      "name": "Mississippi",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 35.9,
+            "male": 35,
+            "female": 36.9
+          },
+          "white": {
+            "all": 43.5,
+            "male": 42.9,
+            "female": 44.3
+          },
+          "black": {
+            "all": 31.2,
+            "male": 30.2,
+            "female": 32.2
+          },
+          "hispanic": {
+            "all": 41.7,
+            "male": 39,
+            "female": 42.2
+          }
+        }
+      },
+      "cohort": [],
+      "population": 2.9
+    },
+    {
+      "code": "MO",
+      "name": "Missouri",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 39.7,
+            "male": 38.4,
+            "female": 41.1
+          },
+          "white": {
+            "all": 43.5,
+            "male": 42.7,
+            "female": 44.5
+          },
+          "black": {
+            "all": 30.9,
+            "male": 28.1,
+            "female": 33.4
+          },
+          "hispanic": {
+            "all": 40.2,
+            "male": 39.2,
+            "female": 40.9
+          }
+        }
+      },
+      "cohort": [],
+      "population": 6.2
+    },
+    {
+      "code": "MT",
+      "name": "Montana",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 45.8,
+            "male": 45.1,
+            "female": 46.6
+          },
+          "white": {
+            "all": 49.5,
+            "male": 48.8,
+            "female": 50.3
+          },
+          "black": {
+            "all": 44.3,
+            "male": 42.8,
+            "female": 47.4
+          },
+          "hispanic": {
+            "all": 39.1,
+            "male": 36.2,
+            "female": 37
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1.1
+    },
+    {
+      "code": "NE",
+      "name": "Nebraska",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 47.3,
+            "male": 46.3,
+            "female": 48.4
+          },
+          "white": {
+            "all": 51.9,
+            "male": 51,
+            "female": 52.8
+          },
+          "black": {
+            "all": 31.1,
+            "male": 28.3,
+            "female": 33.4
+          },
+          "hispanic": {
+            "all": 42.5,
+            "male": 42.1,
+            "female": 42.6
+          }
+        }
+      },
+      "cohort": [],
+      "population": 2
+    },
+    {
+      "code": "NV",
+      "name": "Nevada",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 39.2,
+            "male": 37.7,
+            "female": 40.7
+          },
+          "white": {
+            "all": 43.4,
+            "male": 42.2,
+            "female": 44.4
+          },
+          "black": {
+            "all": 30.7,
+            "male": 27.9,
+            "female": 32.3
+          },
+          "hispanic": {
+            "all": 41.3,
+            "male": 39.7,
+            "female": 42.7
+          }
+        }
+      },
+      "cohort": [],
+      "population": 3.1
+    },
+    {
+      "code": "NH",
+      "name": "New Hampshire",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 43.4,
+            "male": 42.7,
+            "female": 44.3
+          },
+          "white": {
+            "all": 44.8,
+            "male": 44.2,
+            "female": 45.6
+          },
+          "black": {
+            "all": 35.5,
+            "male": 26.6,
+            "female": 50.7
+          },
+          "hispanic": {
+            "all": 39.1,
+            "male": 38.1,
+            "female": 38.6
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1.4
+    },
+    {
+      "code": "NJ",
+      "name": "New Jersey",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 42.7,
+            "male": 40.9,
+            "female": 44.6
+          },
+          "white": {
+            "all": 50.4,
+            "male": 48.9,
+            "female": 52.1
+          },
+          "black": {
+            "all": 33.9,
+            "male": 31,
+            "female": 36.5
+          },
+          "hispanic": {
+            "all": 43.3,
+            "male": 42.3,
+            "female": 44.4
+          }
+        }
+      },
+      "cohort": [],
+      "population": 9.3
+    },
+    {
+      "code": "NM",
+      "name": "New Mexico",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 39.5,
+            "male": 38.5,
+            "female": 40.5
+          },
+          "white": {
+            "all": 46.1,
+            "male": 45.6,
+            "female": 46.9
+          },
+          "black": {
+            "all": 34.9,
+            "male": 33.7,
+            "female": 36.9
+          },
+          "hispanic": {
+            "all": 40.8,
+            "male": 40.2,
+            "female": 41.5
+          }
+        }
+      },
+      "cohort": [],
+      "population": 2.1
+    },
+    {
+      "code": "NY",
+      "name": "New York",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 42.5,
+            "male": 40.8,
+            "female": 44.2
+          },
+          "white": {
+            "all": 48.4,
+            "male": 47.2,
+            "female": 49.7
+          },
+          "black": {
+            "all": 35.8,
+            "male": 32.9,
+            "female": 38.5
+          },
+          "hispanic": {
+            "all": 42.4,
+            "male": 41.7,
+            "female": 43.1
+          }
+        }
+      },
+      "cohort": [],
+      "population": 20.2
+    },
+    {
+      "code": "NC",
+      "name": "North Carolina",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 35.8,
+            "male": 34.2,
+            "female": 37.6
+          },
+          "white": {
+            "all": 40.9,
+            "male": 39.6,
+            "female": 42.4
+          },
+          "black": {
+            "all": 31.1,
+            "male": 28.9,
+            "female": 33
+          },
+          "hispanic": {
+            "all": 39.1,
+            "male": 39,
+            "female": 40.3
+          }
+        }
+      },
+      "cohort": [],
+      "population": 10.4
+    },
+    {
+      "code": "ND",
+      "name": "North Dakota",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 52.7,
+            "male": 51.9,
+            "female": 53.6
+          },
+          "white": {
+            "all": 57.2,
+            "male": 56.4,
+            "female": 58
+          },
+          "black": {
+            "all": 37.3,
+            "male": 32.7,
+            "female": 43.1
+          },
+          "hispanic": {
+            "all": 42.9,
+            "male": 41.6,
+            "female": 45.2
+          }
+        }
+      },
+      "cohort": [],
+      "population": 0.8
+    },
+    {
+      "code": "OH",
+      "name": "Ohio",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 38.2,
+            "male": 36.9,
+            "female": 39.5
+          },
+          "white": {
+            "all": 42.2,
+            "male": 41.5,
+            "female": 43
+          },
+          "black": {
+            "all": 29.6,
+            "male": 26.6,
+            "female": 32.2
+          },
+          "hispanic": {
+            "all": 37.3,
+            "male": 36.7,
+            "female": 36.6
+          }
+        }
+      },
+      "cohort": [],
+      "population": 11.8
+    },
+    {
+      "code": "OK",
+      "name": "Oklahoma",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 41.5,
+            "male": 40.6,
+            "female": 42.5
+          },
+          "white": {
+            "all": 45.4,
+            "male": 44.6,
+            "female": 46.2
+          },
+          "black": {
+            "all": 32.7,
+            "male": 30.6,
+            "female": 34.4
+          },
+          "hispanic": {
+            "all": 41.3,
+            "male": 40.9,
+            "female": 41.2
+          }
+        }
+      },
+      "cohort": [],
+      "population": 4
+    },
+    {
+      "code": "OR",
+      "name": "Oregon",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 41.4,
+            "male": 40.2,
+            "female": 42.6
+          },
+          "white": {
+            "all": 43.5,
+            "male": 42.5,
+            "female": 44.7
+          },
+          "black": {
+            "all": 31.9,
+            "male": 29.8,
+            "female": 32.9
+          },
+          "hispanic": {
+            "all": 41.3,
+            "male": 40.1,
+            "female": 42.7
+          }
+        }
+      },
+      "cohort": [],
+      "population": 4.2
+    },
+    {
+      "code": "PA",
+      "name": "Pennsylvania",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 42,
+            "male": 40.7,
+            "female": 43.3
+          },
+          "white": {
+            "all": 47,
+            "male": 46.1,
+            "female": 47.9
+          },
+          "black": {
+            "all": 31.7,
+            "male": 29,
+            "female": 34.2
+          },
+          "hispanic": {
+            "all": 36.4,
+            "male": 35.3,
+            "female": 36.6
+          }
+        }
+      },
+      "cohort": [],
+      "population": 13
+    },
+    {
+      "code": "RI",
+      "name": "Rhode Island",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 41.6,
+            "male": 40.5,
+            "female": 42.9
+          },
+          "white": {
+            "all": 45.3,
+            "male": 44.5,
+            "female": 46.1
+          },
+          "black": {
+            "all": 35.9,
+            "male": 33.3,
+            "female": 38.4
+          },
+          "hispanic": {
+            "all": 40.5,
+            "male": 39.4,
+            "female": 41
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1.1
+    },
+    {
+      "code": "SC",
+      "name": "South Carolina",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 35.6,
+            "male": 34.3,
+            "female": 37
+          },
+          "white": {
+            "all": 40.8,
+            "male": 39.8,
+            "female": 42
+          },
+          "black": {
+            "all": 31.9,
+            "male": 30.5,
+            "female": 33.3
+          },
+          "hispanic": {
+            "all": 40.3,
+            "male": 41.4,
+            "female": 44.3
+          }
+        }
+      },
+      "cohort": [],
+      "population": 5.1
+    },
+    {
+      "code": "SD",
+      "name": "South Dakota",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 48.5,
+            "male": 47.1,
+            "female": 49.9
+          },
+          "white": {
+            "all": 53.4,
+            "male": 52.1,
+            "female": 54.5
+          },
+          "black": {
+            "all": 36.3,
+            "male": 45.4,
+            "female": 46.7
+          },
+          "hispanic": {
+            "all": 38.9,
+            "male": 38,
+            "female": 38.5
+          }
+        }
+      },
+      "cohort": [],
+      "population": 0.9
+    },
+    {
+      "code": "TN",
+      "name": "Tennessee",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 36,
+            "male": 34.5,
+            "female": 37.6
+          },
+          "white": {
+            "all": 40,
+            "male": 39,
+            "female": 41.1
+          },
+          "black": {
+            "all": 29.8,
+            "male": 27.4,
+            "female": 32.1
+          },
+          "hispanic": {
+            "all": 39.4,
+            "male": 38.5,
+            "female": 40.1
+          }
+        }
+      },
+      "cohort": [],
+      "population": 6.9
+    },
+    {
+      "code": "TX",
+      "name": "Texas",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 41.5,
+            "male": 40.5,
+            "female": 42.5
+          },
+          "white": {
+            "all": 47.2,
+            "male": 46.1,
+            "female": 48.5
+          },
+          "black": {
+            "all": 33,
+            "male": 30.8,
+            "female": 35
+          },
+          "hispanic": {
+            "all": 43.8,
+            "male": 43.4,
+            "female": 44.2
+          }
+        }
+      },
+      "cohort": [],
+      "population": 29.1
+    },
+    {
+      "code": "UT",
+      "name": "Utah",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 46.5,
+            "male": 45.7,
+            "female": 47.3
+          },
+          "white": {
+            "all": 49.7,
+            "male": 48.8,
+            "female": 50.6
+          },
+          "black": {
+            "all": 30,
+            "male": 35.5,
+            "female": 34.2
+          },
+          "hispanic": {
+            "all": 41.5,
+            "male": 40.8,
+            "female": 41.4
+          }
+        }
+      },
+      "cohort": [],
+      "population": 3.3
+    },
+    {
+      "code": "VT",
+      "name": "Vermont",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 44.4,
+            "male": 43.9,
+            "female": 45
+          },
+          "white": {
+            "all": 45.7,
+            "male": 45.4,
+            "female": 46.1
+          },
+          "black": {
+            "all": null,
+            "male": null,
+            "female": null
+          },
+          "hispanic": {
+            "all": null,
+            "male": null,
+            "female": null
+          }
+        }
+      },
+      "cohort": [],
+      "population": 0.6
+    },
+    {
+      "code": "VA",
+      "name": "Virginia",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 39.9,
+            "male": 38.1,
+            "female": 41.8
+          },
+          "white": {
+            "all": 43.8,
+            "male": 42.5,
+            "female": 45.3
+          },
+          "black": {
+            "all": 33.6,
+            "male": 30.9,
+            "female": 35.8
+          },
+          "hispanic": {
+            "all": 47.4,
+            "male": 46.4,
+            "female": 49.9
+          }
+        }
+      },
+      "cohort": [],
+      "population": 8.6
+    },
+    {
+      "code": "WA",
+      "name": "Washington",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 43.2,
+            "male": 42,
+            "female": 44.5
+          },
+          "white": {
+            "all": 45.4,
+            "male": 44.5,
+            "female": 46.4
+          },
+          "black": {
+            "all": 34.2,
+            "male": 31.3,
+            "female": 36.5
+          },
+          "hispanic": {
+            "all": 42.9,
+            "male": 42.5,
+            "female": 43.8
+          }
+        }
+      },
+      "cohort": [],
+      "population": 7.7
+    },
+    {
+      "code": "WV",
+      "name": "West Virginia",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 40.7,
+            "male": 39.8,
+            "female": 41.8
+          },
+          "white": {
+            "all": 42.2,
+            "male": 41.3,
+            "female": 43.1
+          },
+          "black": {
+            "all": 31.5,
+            "male": 30,
+            "female": 33.1
+          },
+          "hispanic": {
+            "all": 37.7,
+            "male": 36.6,
+            "female": null
+          }
+        }
+      },
+      "cohort": [],
+      "population": 1.8
+    },
+    {
+      "code": "WI",
+      "name": "Wisconsin",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 42.6,
+            "male": 41.2,
+            "female": 44
+          },
+          "white": {
+            "all": 47.5,
+            "male": 46.5,
+            "female": 48.6
+          },
+          "black": {
+            "all": 30,
+            "male": 26.7,
+            "female": 33.1
+          },
+          "hispanic": {
+            "all": 40,
+            "male": 39.4,
+            "female": 40
+          }
+        }
+      },
+      "cohort": [],
+      "population": 5.9
+    },
+    {
+      "code": "WY",
+      "name": "Wyoming",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 49,
+            "male": 49.1,
+            "female": 48.8
+          },
+          "white": {
+            "all": 51.5,
+            "male": 52,
+            "female": 51
+          },
+          "black": {
+            "all": 36.2,
+            "male": 45.4,
+            "female": 35.5
+          },
+          "hispanic": {
+            "all": 45.2,
+            "male": 44.3,
+            "female": 44.9
+          }
+        }
+      },
+      "cohort": [],
+      "population": 0.6
+    },
+    {
+      "code": "AL",
+      "name": "Alabama",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 36.3,
+            "male": 35.2,
+            "female": 37.5
+          },
+          "white": {
+            "all": 41.8,
+            "male": 40.9,
+            "female": 42.8
+          },
+          "black": {
+            "all": 31.4,
+            "male": 30.2,
+            "female": 32.6
+          },
+          "hispanic": {
+            "all": 39.3,
+            "male": 38,
+            "female": 38.1
+          }
+        }
+      },
+      "cohort": [],
+      "population": 5
+    },
+    {
+      "code": "AK",
+      "name": "Alaska",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 37.2,
+            "male": 36.3,
+            "female": 38.2
+          },
+          "white": {
+            "all": 43.5,
+            "male": 43,
+            "female": 44.1
+          },
+          "black": {
+            "all": 35.1,
+            "male": 34.4,
+            "female": 35.6
+          },
+          "hispanic": {
+            "all": 38.9,
+            "male": 38.9,
+            "female": 39.1
+          }
+        }
+      },
+      "cohort": [],
+      "population": 0.7
+    },
+    {
+      "code": "AZ",
+      "name": "Arizona",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 38.6,
+            "male": 37.2,
+            "female": 40.1
+          },
+          "white": {
+            "all": 44.6,
+            "male": 43.2,
+            "female": 46.1
+          },
+          "black": {
+            "all": 32.6,
+            "male": 29.4,
+            "female": 34.8
+          },
+          "hispanic": {
+            "all": 39.4,
+            "male": 38.2,
+            "female": 40.5
+          }
+        }
+      },
+      "cohort": [],
+      "population": 7.2
+    },
+    {
+      "code": "AR",
+      "name": "Arkansas",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 38.4,
+            "male": 37.3,
+            "female": 39.6
+          },
+          "white": {
+            "all": 42.4,
+            "male": 41.5,
+            "female": 43.5
+          },
+          "black": {
+            "all": 31,
+            "male": 29.3,
+            "female": 32.5
+          },
+          "hispanic": {
+            "all": 40.2,
+            "male": 40.8,
+            "female": 41
+          }
+        }
+      },
+      "cohort": [],
+      "population": 3
+    },
+    {
+      "code": "CA",
+      "name": "California",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 42.4,
+            "male": 40.6,
+            "female": 44.3
+          },
+          "white": {
+            "all": 47,
+            "male": 45.2,
+            "female": 49.1
+          },
+          "black": {
+            "all": 32.1,
+            "male": 29.3,
+            "female": 34.6
+          },
+          "hispanic": {
+            "all": 43.6,
+            "male": 42.3,
+            "female": 45
+          }
+        }
+      },
+      "cohort": [],
+      "population": 39.5
+    },
+    {
+      "code": "CO",
+      "name": "Colorado",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 42.6,
+            "male": 41.5,
+            "female": 43.7
+          },
+          "white": {
+            "all": 47.6,
+            "male": 46.4,
+            "female": 48.9
+          },
+          "black": {
+            "all": 34.1,
+            "male": 32.3,
+            "female": 35.7
+          },
+          "hispanic": {
+            "all": 40.7,
+            "male": 39.9,
+            "female": 41.2
+          }
+        }
+      },
+      "cohort": [],
+      "population": 5.8
+    },
+    {
+      "code": "CT",
+      "name": "Connecticut",
+      "mobility": {
+        "p25": {
+          "all": {
+            "all": 41.2,
+            "male": 39,
+            "female": 43.4
+          },
+          "white": {
+            "all": 47.7,
+            "male": 45.8,
+            "female": 50
+          },
+          "black": {
+            "all": 34.6,
+            "male": 30.9,
+            "female": 38
+          },
+          "hispanic": {
+            "all": 38.9,
+            "male": 37.7,
+            "female": 39.6
+          }
+        }
+      },
+      "cohort": [],
+      "population": 3.6
+    }
+  ]
+}
