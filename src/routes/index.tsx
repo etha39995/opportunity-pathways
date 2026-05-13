@@ -137,13 +137,11 @@ function Index() {
       {/* Footer */}
       <footer className="border-t bg-background">
         <div className="mx-auto max-w-7xl px-6 py-8 text-xs text-muted-foreground md:flex md:items-center md:justify-between">
-          <div>
-            Concept and visualization inspired by the{" "}
-            <a className="underline hover:text-foreground" href="https://www.opportunityatlas.org" target="_blank" rel="noreferrer">
-              Opportunity Atlas
-            </a>{" "}
-            (Chetty, Friedman, Hendren, Jones, Porter). Values shown here are illustrative —
-            wire to the official extracts for production use.
+          <div className="max-w-3xl">
+            Data: <a className="underline hover:text-foreground" href="https://opportunityinsights.org/data/" target="_blank" rel="noreferrer">Opportunity Insights</a>{" "}
+            tract-level outcomes (<code className="text-[10px]">tract_outcomes_simple.csv</code>),
+            aggregated to states by population-weighted average. Citation: Chetty, Friedman,
+            Hendren, Jones, Porter (2018), <em>The Opportunity Atlas</em>, NBER WP 25147.
           </div>
           <div className="mt-3 md:mt-0">© {new Date().getFullYear()} · Built for civic exploration</div>
         </div>
