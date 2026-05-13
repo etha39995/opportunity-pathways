@@ -1,8 +1,19 @@
-// Mock dataset modeled on Opportunity Atlas state-level patterns.
-// Values are household income rank (0-100) at age 35 for children
-// raised by parents at the given income percentile. Higher = more upward mobility.
-// Patterns intentionally echo published findings (higher in Plains/Upper Midwest,
-// lower in much of the Southeast). Replace with real OA extracts when wiring up data.
+// State-level upward-mobility dataset.
+//
+// Source: src/data/mobility.real.json — generated at build time by
+// `npm run fetch-atlas` from the Opportunity Insights tract-level extract:
+//   https://opportunityinsights.org/wp-content/uploads/2018/10/tract_outcomes_simple.csv
+//
+// Values are mean household income rank (0–100) at age ~30 for children whose
+// parents were at the 25th percentile of the national income distribution
+// (variable kfr_<race>_<sex>_p25), aggregated from census tract to state via
+// population-weighted averaging using the Atlas sample counts.
+//
+// Available cells in this extract: parental income p25 only; race ∈
+// {all, white, black, hispanic} (no Asian); sex ∈ {all, male, female}.
+// Filter UI hides combinations the data does not support.
+
+import realData from "./mobility.real.json";
 
 export type Race = "all" | "white" | "black" | "hispanic" | "asian";
 export type Sex = "all" | "male" | "female";
@@ -11,12 +22,19 @@ export type IncomeGroup = "p25" | "p50" | "p75";
 export interface StateRecord {
   code: string;
   name: string;
-  // mobility[income][race][sex] = rank
-  mobility: Record<IncomeGroup, Record<Race, Record<Sex, number>>>;
-  // cohort trend: mean rank for p25 / all by birth year
+  // mobility[income][race][sex] = rank (0–100), or null if unavailable
+  mobility: Record<
+    IncomeGroup,
+    Partial<Record<Race, Partial<Record<Sex, number | null>>>>
+  >;
   cohort: { year: number; rank: number }[];
-  population: number; // millions, for context
+  population: number;
 }
+
+// Available filter cells — drives the UI controls.
+export const AVAILABLE_INCOME: IncomeGroup[] = ["p25"];
+export const AVAILABLE_RACE: Race[] = ["all", "white", "black", "hispanic"];
+export const AVAILABLE_SEX: Sex[] = ["all", "male", "female"];
 
 // Tile cartogram coordinates (col, row), inspired by NPR/WaPo style grids.
 export const TILE_LAYOUT: Record<string, { col: number; row: number; name: string }> = {
@@ -73,84 +91,53 @@ export const TILE_LAYOUT: Record<string, { col: number; row: number; name: strin
   DC: { col: 9, row: 4.5, name: "District of Columbia" },
 };
 
-// Base rank for p25, all races/sexes — directional, not actual OA values.
-const BASE_P25: Record<string, number> = {
-  AK: 43, AL: 38, AR: 39, AZ: 42, CA: 44, CO: 47, CT: 45, DC: 39, DE: 42,
-  FL: 41, GA: 38, HI: 47, IA: 49, ID: 47, IL: 42, IN: 43, KS: 47, KY: 39,
-  LA: 36, MA: 47, MD: 44, ME: 45, MI: 41, MN: 50, MO: 42, MS: 35, MT: 47,
-  NC: 40, ND: 51, NE: 49, NH: 49, NJ: 46, NM: 40, NV: 41, NY: 44, OH: 41,
-  OK: 41, OR: 44, PA: 43, RI: 44, SC: 38, SD: 49, TN: 39, TX: 42, UT: 49,
-  VA: 43, VT: 47, WA: 46, WI: 47, WV: 39, WY: 47,
-};
-
-const POP: Record<string, number> = {
-  CA: 39, TX: 30, FL: 22, NY: 19.6, PA: 13, IL: 12.5, OH: 11.8, GA: 11,
-  NC: 10.7, MI: 10, NJ: 9.3, VA: 8.7, WA: 7.8, AZ: 7.5, TN: 7.1, MA: 7,
-  IN: 6.8, MO: 6.2, MD: 6.2, WI: 5.9, CO: 5.8, MN: 5.7, SC: 5.3, AL: 5,
-  LA: 4.6, KY: 4.5, OR: 4.2, OK: 4, CT: 3.6, UT: 3.4, IA: 3.2, NV: 3.1,
-  AR: 3, MS: 2.9, KS: 2.9, NM: 2.1, NE: 2, ID: 1.9, WV: 1.8, HI: 1.4,
-  NH: 1.4, ME: 1.4, MT: 1.1, RI: 1.1, DE: 1, SD: 0.9, ND: 0.8, AK: 0.7,
-  VT: 0.6, WY: 0.6, DC: 0.7,
-};
-
-function jitter(seed: number, amp: number) {
-  const x = Math.sin(seed * 9301 + 49297) * 233280;
-  return ((x - Math.floor(x)) - 0.5) * 2 * amp;
+interface RawRecord {
+  code: string;
+  name: string;
+  mobility: { p25: Record<string, Record<string, number | null>> };
+  cohort: { year: number; rank: number }[];
+  population: number;
 }
 
-function buildRecord(code: string, idx: number): StateRecord {
-  const base = BASE_P25[code];
-  const mobility = {} as StateRecord["mobility"];
-  const incomes: IncomeGroup[] = ["p25", "p50", "p75"];
-  const races: Race[] = ["all", "white", "black", "hispanic", "asian"];
-  const sexes: Sex[] = ["all", "male", "female"];
+const raw = realData as { source: string; generatedAt: string; states: RawRecord[] };
 
-  incomes.forEach((inc, ii) => {
-    const incomeShift = ii * 8; // children of higher-income parents end up higher
-    mobility[inc] = {} as Record<Race, Record<Sex, number>>;
-    races.forEach((race, ri) => {
-      // Race gaps reflect persistent disparities documented by OA.
-      const raceShift =
-        race === "all" ? 0 :
-        race === "white" ? 4 :
-        race === "black" ? -9 :
-        race === "hispanic" ? -3 :
-        /* asian */ 6;
-      mobility[inc][race] = {} as Record<Sex, number>;
-      sexes.forEach((sex, si) => {
-        const sexShift =
-          sex === "all" ? 0 :
-          sex === "male" ? (race === "black" ? -4 : -1) :
-          /* female */ (race === "black" ? 4 : 1);
-        const v = base + incomeShift + raceShift + sexShift + jitter(idx * 31 + ii * 7 + ri * 3 + si, 1.2);
-        mobility[inc][race][sex] = Math.max(15, Math.min(80, +v.toFixed(1)));
-      });
-    });
-  });
+export const DATA_SOURCE_URL = raw.source;
+export const DATA_GENERATED_AT = raw.generatedAt;
 
-  // Cohort trend (1978–1992) — slight national decline, with state noise.
-  const cohort = Array.from({ length: 8 }, (_, k) => {
-    const year = 1978 + k * 2;
-    const trend = -0.25 * k + jitter(idx * 11 + k, 0.6);
-    return { year, rank: +(base + trend).toFixed(1) };
-  });
+export const STATES: StateRecord[] = raw.states.map((s) => ({
+  code: s.code,
+  name: s.name,
+  mobility: { p25: s.mobility.p25, p50: {}, p75: {} } as StateRecord["mobility"],
+  cohort: s.cohort,
+  population: s.population,
+}));
 
-  return {
-    code,
-    name: TILE_LAYOUT[code].name,
-    mobility,
-    cohort,
-    population: POP[code] ?? 1,
-  };
-}
-
-export const STATES: StateRecord[] = Object.keys(TILE_LAYOUT).map((c, i) => buildRecord(c, i));
 export const STATES_BY_CODE: Record<string, StateRecord> = Object.fromEntries(
   STATES.map((s) => [s.code, s]),
 );
 
-export const NATIONAL_AVG = (income: IncomeGroup, race: Race, sex: Sex) => {
-  const total = STATES.reduce((acc, s) => acc + s.mobility[income][race][sex] * s.population, 0);
-  const pop = STATES.reduce((acc, s) => acc + s.population, 0);
-  return +(total / pop).toFixed(1);
+/** Lookup with graceful fallback for unavailable cells. */
+export function valueFor(
+  s: StateRecord,
+  income: IncomeGroup,
+  race: Race,
+  sex: Sex,
+): number | null {
+  const row = s.mobility[income];
+  if (!row) return null;
+  const v = row[race]?.[sex];
+  return v ?? null;
+}
+
+/** Population-weighted national average across states with available data. */
+export const NATIONAL_AVG = (income: IncomeGroup, race: Race, sex: Sex): number => {
+  let num = 0;
+  let den = 0;
+  for (const s of STATES) {
+    const v = valueFor(s, income, race, sex);
+    if (v == null) continue;
+    num += v * s.population;
+    den += s.population;
+  }
+  return den > 0 ? +(num / den).toFixed(1) : 0;
 };
