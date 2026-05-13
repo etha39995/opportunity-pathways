@@ -109,7 +109,7 @@ export function USTileMap({ income, race, sex, selected, onSelect }: Props) {
           </div>
           <div className="text-muted-foreground">
             Adult income rank: <span className="font-medium text-foreground">
-              {(values.get(hover.code) ?? 0).toFixed(1)}
+              {(() => { const hv = values.get(hover.code); return hv == null ? "no data" : hv.toFixed(1); })()}
             </span>
           </div>
           <div className="text-muted-foreground">Click to inspect</div>
