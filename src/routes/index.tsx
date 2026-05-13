@@ -4,7 +4,7 @@ import { USTileMap } from "@/components/atlas/USTileMap";
 import { Filters } from "@/components/atlas/Filters";
 import { DetailPanel } from "@/components/atlas/DetailPanel";
 import {
-  STATES, NATIONAL_AVG, type IncomeGroup, type Race, type Sex,
+  STATES, NATIONAL_AVG, valueFor, type IncomeGroup, type Race, type Sex,
 } from "@/data/mobility";
 
 export const Route = createFileRoute("/")({
@@ -28,7 +28,11 @@ function Index() {
   const [selected, setSelected] = useState<string>("NC");
 
   const ranked = useMemo(
-    () => [...STATES].sort((a, b) => b.mobility[income][race][sex] - a.mobility[income][race][sex]),
+    () => STATES
+      .map((s) => ({ s, v: valueFor(s, income, race, sex) }))
+      .filter((r): r is { s: typeof STATES[number]; v: number } => r.v != null)
+      .sort((a, b) => b.v - a.v)
+      .map((r) => r.s),
     [income, race, sex],
   );
   const top = ranked.slice(0, 3);
@@ -170,15 +174,18 @@ function RankList({
     <div>
       <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{title}</div>
       <ul className="space-y-1.5">
-        {items.map((s) => (
-          <li key={s.code} className="flex items-center gap-3 text-sm">
-            <span className="inline-block h-2 w-2 rounded-full" style={{ background: accent }} />
-            <span className="flex-1 text-ink">{s.name}</span>
-            <span className="font-display tabular-nums text-ink">
-              {s.mobility[income][race][sex].toFixed(1)}
-            </span>
-          </li>
-        ))}
+        {items.map((s) => {
+          const v = valueFor(s, income, race, sex);
+          return (
+            <li key={s.code} className="flex items-center gap-3 text-sm">
+              <span className="inline-block h-2 w-2 rounded-full" style={{ background: accent }} />
+              <span className="flex-1 text-ink">{s.name}</span>
+              <span className="font-display tabular-nums text-ink">
+                {v == null ? "—" : v.toFixed(1)}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
