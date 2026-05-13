@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { STATES, TILE_LAYOUT, type Race, type Sex, type IncomeGroup } from "@/data/mobility";
+import { STATES, TILE_LAYOUT, valueFor, type Race, type Sex, type IncomeGroup } from "@/data/mobility";
 
 interface Props {
   income: IncomeGroup;
@@ -21,14 +21,14 @@ export function USTileMap({ income, race, sex, selected, onSelect }: Props) {
   const [hover, setHover] = useState<{ code: string; x: number; y: number } | null>(null);
 
   const values = useMemo(() => {
-    const map = new Map<string, number>();
-    STATES.forEach((s) => map.set(s.code, s.mobility[income][race][sex]));
+    const map = new Map<string, number | null>();
+    STATES.forEach((s) => map.set(s.code, valueFor(s, income, race, sex)));
     return map;
   }, [income, race, sex]);
 
   const [min, max] = useMemo(() => {
-    const arr = [...values.values()];
-    return [Math.min(...arr), Math.max(...arr)];
+    const arr = [...values.values()].filter((v): v is number => v != null);
+    return arr.length ? [Math.min(...arr), Math.max(...arr)] : [0, 1];
   }, [values]);
 
   const cell = 56;
@@ -47,7 +47,7 @@ export function USTileMap({ income, race, sex, selected, onSelect }: Props) {
         aria-label="US tile cartogram of upward mobility"
       >
         {Object.entries(TILE_LAYOUT).map(([code, pos]) => {
-          const v = values.get(code) ?? 0;
+          const v = values.get(code) ?? null;
           const isSel = selected === code;
           const x = pos.col * (cell + gap);
           const y = pos.row * (cell + gap);
@@ -71,7 +71,7 @@ export function USTileMap({ income, race, sex, selected, onSelect }: Props) {
                 width={cell}
                 height={cell}
                 rx={8}
-                fill={bucket(v, min, max)}
+                fill={v == null ? "var(--color-muted)" : bucket(v, min, max)}
                 stroke={isSel ? "var(--color-ink)" : "transparent"}
                 strokeWidth={isSel ? 3 : 0}
                 style={{ transition: "stroke 120ms ease, transform 120ms ease" }}
@@ -92,7 +92,7 @@ export function USTileMap({ income, race, sex, selected, onSelect }: Props) {
                 className="fill-white/85"
                 style={{ fontSize: 11, pointerEvents: "none" }}
               >
-                {v.toFixed(0)}
+                {v == null ? "—" : v.toFixed(0)}
               </text>
             </g>
           );
@@ -109,7 +109,7 @@ export function USTileMap({ income, race, sex, selected, onSelect }: Props) {
           </div>
           <div className="text-muted-foreground">
             Adult income rank: <span className="font-medium text-foreground">
-              {(values.get(hover.code) ?? 0).toFixed(1)}
+              {(() => { const hv = values.get(hover.code); return hv == null ? "no data" : hv.toFixed(1); })()}
             </span>
           </div>
           <div className="text-muted-foreground">Click to inspect</div>

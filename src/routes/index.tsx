@@ -4,7 +4,7 @@ import { USTileMap } from "@/components/atlas/USTileMap";
 import { Filters } from "@/components/atlas/Filters";
 import { DetailPanel } from "@/components/atlas/DetailPanel";
 import {
-  STATES, NATIONAL_AVG, type IncomeGroup, type Race, type Sex,
+  STATES, NATIONAL_AVG, valueFor, type IncomeGroup, type Race, type Sex,
 } from "@/data/mobility";
 
 export const Route = createFileRoute("/")({
@@ -28,7 +28,11 @@ function Index() {
   const [selected, setSelected] = useState<string>("NC");
 
   const ranked = useMemo(
-    () => [...STATES].sort((a, b) => b.mobility[income][race][sex] - a.mobility[income][race][sex]),
+    () => STATES
+      .map((s) => ({ s, v: valueFor(s, income, race, sex) }))
+      .filter((r): r is { s: typeof STATES[number]; v: number } => r.v != null)
+      .sort((a, b) => b.v - a.v)
+      .map((r) => r.s),
     [income, race, sex],
   );
   const top = ranked.slice(0, 3);
@@ -133,13 +137,11 @@ function Index() {
       {/* Footer */}
       <footer className="border-t bg-background">
         <div className="mx-auto max-w-7xl px-6 py-8 text-xs text-muted-foreground md:flex md:items-center md:justify-between">
-          <div>
-            Concept and visualization inspired by the{" "}
-            <a className="underline hover:text-foreground" href="https://www.opportunityatlas.org" target="_blank" rel="noreferrer">
-              Opportunity Atlas
-            </a>{" "}
-            (Chetty, Friedman, Hendren, Jones, Porter). Values shown here are illustrative —
-            wire to the official extracts for production use.
+          <div className="max-w-3xl">
+            Data: <a className="underline hover:text-foreground" href="https://opportunityinsights.org/data/" target="_blank" rel="noreferrer">Opportunity Insights</a>{" "}
+            tract-level outcomes (<code className="text-[10px]">tract_outcomes_simple.csv</code>),
+            aggregated to states by population-weighted average. Citation: Chetty, Friedman,
+            Hendren, Jones, Porter (2018), <em>The Opportunity Atlas</em>, NBER WP 25147.
           </div>
           <div className="mt-3 md:mt-0">© {new Date().getFullYear()} · Built for civic exploration</div>
         </div>
@@ -170,15 +172,18 @@ function RankList({
     <div>
       <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{title}</div>
       <ul className="space-y-1.5">
-        {items.map((s) => (
-          <li key={s.code} className="flex items-center gap-3 text-sm">
-            <span className="inline-block h-2 w-2 rounded-full" style={{ background: accent }} />
-            <span className="flex-1 text-ink">{s.name}</span>
-            <span className="font-display tabular-nums text-ink">
-              {s.mobility[income][race][sex].toFixed(1)}
-            </span>
-          </li>
-        ))}
+        {items.map((s) => {
+          const v = valueFor(s, income, race, sex);
+          return (
+            <li key={s.code} className="flex items-center gap-3 text-sm">
+              <span className="inline-block h-2 w-2 rounded-full" style={{ background: accent }} />
+              <span className="flex-1 text-ink">{s.name}</span>
+              <span className="font-display tabular-nums text-ink">
+                {v == null ? "—" : v.toFixed(1)}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

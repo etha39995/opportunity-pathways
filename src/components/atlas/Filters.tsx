@@ -1,4 +1,7 @@
-import type { IncomeGroup, Race, Sex } from "@/data/mobility";
+import {
+  AVAILABLE_INCOME, AVAILABLE_RACE, AVAILABLE_SEX,
+  type IncomeGroup, type Race, type Sex,
+} from "@/data/mobility";
 
 interface Props {
   income: IncomeGroup; setIncome: (v: IncomeGroup) => void;
@@ -25,33 +28,44 @@ const SEX: { key: Sex; label: string }[] = [
 ];
 
 export function Filters({ income, setIncome, race, setRace, sex, setSex }: Props) {
+  const incomeAvail = new Set<IncomeGroup>(AVAILABLE_INCOME);
+  const raceAvail = new Set<Race>(AVAILABLE_RACE);
+  const sexAvail = new Set<Sex>(AVAILABLE_SEX);
   return (
     <div className="grid gap-5">
       <Group label="Parental income">
         <div className="grid grid-cols-3 gap-2">
-          {INCOME.map((o) => (
-            <button
-              key={o.key}
-              onClick={() => setIncome(o.key)}
-              className={`rounded-md border px-3 py-2 text-left transition ${
-                income === o.key
-                  ? "border-ink bg-ink text-background"
-                  : "border-border bg-card hover:border-ink/30"
-              }`}
-            >
-              <div className="text-sm font-semibold">{o.label}</div>
-              <div className={`text-[11px] ${income === o.key ? "opacity-75" : "text-muted-foreground"}`}>{o.sub}</div>
-            </button>
-          ))}
+          {INCOME.map((o) => {
+            const active = income === o.key;
+            const disabled = !incomeAvail.has(o.key);
+            return (
+              <button
+                key={o.key}
+                onClick={() => !disabled && setIncome(o.key)}
+                disabled={disabled}
+                title={disabled ? "Not available in current data extract" : undefined}
+                className={`rounded-md border px-3 py-2 text-left transition ${
+                  active
+                    ? "border-ink bg-ink text-background"
+                    : disabled
+                    ? "cursor-not-allowed border-border bg-card opacity-40"
+                    : "border-border bg-card hover:border-ink/30"
+                }`}
+              >
+                <div className="text-sm font-semibold">{o.label}</div>
+                <div className={`text-[11px] ${active ? "opacity-75" : "text-muted-foreground"}`}>{o.sub}</div>
+              </button>
+            );
+          })}
         </div>
       </Group>
 
       <Group label="Race / ethnicity">
-        <Pills options={RACE} value={race} onChange={setRace} />
+        <Pills options={RACE} value={race} onChange={setRace} avail={raceAvail} />
       </Group>
 
       <Group label="Sex">
-        <Pills options={SEX} value={sex} onChange={setSex} />
+        <Pills options={SEX} value={sex} onChange={setSex} avail={sexAvail} />
       </Group>
     </div>
   );
@@ -67,23 +81,31 @@ function Group({ label, children }: { label: string; children: React.ReactNode }
 }
 
 function Pills<T extends string>({
-  options, value, onChange,
-}: { options: { key: T; label: string }[]; value: T; onChange: (v: T) => void }) {
+  options, value, onChange, avail,
+}: { options: { key: T; label: string }[]; value: T; onChange: (v: T) => void; avail: Set<T> }) {
   return (
     <div className="flex flex-wrap gap-1.5">
-      {options.map((o) => (
-        <button
-          key={o.key}
-          onClick={() => onChange(o.key)}
-          className={`rounded-full border px-3 py-1 text-xs transition ${
-            value === o.key
-              ? "border-ink bg-ink text-background"
-              : "border-border bg-card text-foreground hover:border-ink/30"
-          }`}
-        >
-          {o.label}
-        </button>
-      ))}
+      {options.map((o) => {
+        const active = value === o.key;
+        const disabled = !avail.has(o.key);
+        return (
+          <button
+            key={o.key}
+            onClick={() => !disabled && onChange(o.key)}
+            disabled={disabled}
+            title={disabled ? "Not available in current data extract" : undefined}
+            className={`rounded-full border px-3 py-1 text-xs transition ${
+              active
+                ? "border-ink bg-ink text-background"
+                : disabled
+                ? "cursor-not-allowed border-border bg-card text-foreground opacity-40"
+                : "border-border bg-card text-foreground hover:border-ink/30"
+            }`}
+          >
+            {o.label}
+          </button>
+        );
+      })}
     </div>
   );
 }
