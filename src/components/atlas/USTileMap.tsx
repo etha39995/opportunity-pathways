@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { STATES, TILE_LAYOUT, type Race, type Sex, type IncomeGroup } from "@/data/mobility";
+import { STATES, TILE_LAYOUT, valueFor, type Race, type Sex, type IncomeGroup } from "@/data/mobility";
 
 interface Props {
   income: IncomeGroup;
@@ -21,14 +21,14 @@ export function USTileMap({ income, race, sex, selected, onSelect }: Props) {
   const [hover, setHover] = useState<{ code: string; x: number; y: number } | null>(null);
 
   const values = useMemo(() => {
-    const map = new Map<string, number>();
-    STATES.forEach((s) => map.set(s.code, s.mobility[income][race][sex]));
+    const map = new Map<string, number | null>();
+    STATES.forEach((s) => map.set(s.code, valueFor(s, income, race, sex)));
     return map;
   }, [income, race, sex]);
 
   const [min, max] = useMemo(() => {
-    const arr = [...values.values()];
-    return [Math.min(...arr), Math.max(...arr)];
+    const arr = [...values.values()].filter((v): v is number => v != null);
+    return arr.length ? [Math.min(...arr), Math.max(...arr)] : [0, 1];
   }, [values]);
 
   const cell = 56;
